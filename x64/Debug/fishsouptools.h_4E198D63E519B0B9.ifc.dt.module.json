@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\fishsouptools.obj",
+            "outputs": [
+                "x64\\Debug\\fishsouptools.h_4E198D63E519B0B9.ifc.dt.module.json",
+                "x64\\Debug\\fishsouptools.h_4E198D63E519B0B9.ifc.dt.d.json",
+                "x64\\Debug\\fishsouptools.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "D:\\C++pro\\Test\\Test\\fishsouptools.h",
+                    "source-path": "d:\\c++pro\\test\\test\\fishsouptools.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

@@ -18,5 +18,11 @@
     <ClCompile Include="Test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Tank.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fishsouptools.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
