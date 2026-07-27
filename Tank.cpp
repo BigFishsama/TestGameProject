@@ -1,149 +1,88 @@
 #include <graphics.h>
-#include <list>
+#include <iostream>
+#include "Tank.h"
+#include "Bullet.h"
 #include "fishsouptools.h"
+#include "Manager.h"
 
-using namespace std;
-const int FPS = 120;
-const int perms = 1000 / FPS;
-int mx, my;
-struct tank
+void Tank::initrender()
 {
-	IMAGE tank,bullet;
-	IMAGE print_tank,print_bullet;
-	double x=400, y=300,r=0;
-	int testsleep=0;
-	void move(double dis)
-	{
-		double dy = dis * cos(r);
-		double dx = dis * sin(r);
-		x -= dx;
-		y -= dy;
-	}
-	void turn(double radius)
-	{
-		r += PI / 180 * radius;
-		rotateimage(&print_tank, &tank, r, 0UL, 1);
-	}
-	void printTank()
-	{
-		//putPNGImage(x, y, print_tank);
-		putPNGImage(x-print_tank.getwidth()/2, y-print_tank.getheight()/2, print_tank);
-	}
-}player;
-struct bullet
+	loadimage(&(this->Texture), L"image/Tanks/Tank.png", 100, 100, true);
+	loadimage(&(this->printed_Texture), L"image/Tanks/Tank.png", 100, 100, true);
+}
+Tank::Tank(double x,double y,double r)
 {
-	tank* from;
-	double x, y, r, speed;
-	int d=20;//出界修正
-	void printBullet()
-	{
-		rotateimage(&from->print_bullet, &from->bullet, r, 0UL, 1);
-		putPNGImage(x - from->print_bullet.getwidth() / 2, y - from->print_bullet.getheight() / 2, from->print_bullet);
-	}
-	int yupdate()
-	{
-		double dx = speed * sin(r);
-		double dy = speed * cos(r);
-		
-		x -= dx;
-		y -= dy;
-		if (x < 0 - d || y < 0 - d || x>800 + d || y>600 + d)
-		{
-			return 0;
-		}
-		return 1;
-	}
-	void initBullet(double x1, double y1, double speed1,double r1,tank* tank)
-	{
-		x = x1- speed1*10 * sin(r1);;
-		y = y1- speed1*10 * cos(r1);
-		speed = speed1;
-		r = r1;
-		from = tank;
-	}
-};
-list<bullet> l;
-void test1(tank* from)
+	this->initrender();
+	this->x = x;
+	this->y = y;
+	this->r = r;
+}
+Tank::Tank(double x, double y, double r, char key_up, char key_down, char key_left, char key_right, char key_shoot)
 {
-	double x = (*from).x, y = (*from).y, r = (*from).r, speed = 5;
-	bullet u1;
-	u1.initBullet(x , y ,speed,r,from);
-	l.push_back(u1);
+	this->initrender();
+	this->x = x;
+	this->y = y;
+	this->r = r;
+	this->key_up = key_up;
+	this->key_down = key_down;
+	this->key_left = key_left;
+	this->key_right = key_right;
+	this->key_shoot = key_shoot;
 }
 
-
-void init()
+// 向方向上移动dis个单位长度
+void Tank::move(double dis)
 {
-	initgraph(800, 600);
-	loadimage(&player.tank, L"image/Tanks/Tank.png",100,100,true);
-	loadimage(&player.print_tank, L"image/Tanks/Tank.png", 100, 100, true);
-	loadimage(&player.bullet, L"image/Bullets/bullet.png", 20, 34, true);
-	loadimage(&player.print_bullet, L"image/Bullets/bullet.png", 20, 34, true);
+	//调用工具函数，返回新位置
+	pair<int, int> new_xy = calcMovePosition(this->x, this->y, this->r, dis);
+	this->x = new_xy.first;
+	this->y = new_xy.second;
 }
-signed main()
-{
-	init();
-	BeginBatchDraw();
-	while (1)
-	{
-		DWORD starttime = GetTickCount();
-		ExMessage mes;
-		while (peekmessage(&mes))
-		{
-			mx = mes.x;
-			my = mes.y;
-		}
-		if (GetAsyncKeyState('A') & 0x8000)
-		{
-			player.turn(2);
-		}
-		if (GetAsyncKeyState('D') & 0x8000)
-		{
-			player.turn(-2);
-		}
-		if(GetAsyncKeyState('W') & 0x8000)
-		{
-			player.move(3);
-		}
-		if (GetAsyncKeyState('S') & 0x8000)
-		{
-			player.move(-3);
-		}
-		if (GetAsyncKeyState('R') & 0x8000)
-		{
-			if (player.testsleep == 0)
-			{
-				player.testsleep=40;
-				test1(&player);
-			}
-		}
-		if (player.testsleep) --player.testsleep;
-		
-		for (auto it = l.begin();it != l.end();)
-		{
-			int re=(*it).yupdate();
-			if (re == 0)
-			{
-				it = l.erase(it);
-				continue;
-			}
-			++it;
-		}
-		cleardevice();
-		
-		player.printTank();
-		for (auto it = l.begin();it != l.end();++it)
-		{
-			(*it).printBullet();
-		}
 
-		FlushBatchDraw();//刷新到屏幕上
-		DWORD duringtime = GetTickCount()-starttime;
-		if (duringtime <perms)
+// 旋转radius度，顺时针
+void Tank::turn(double radius)
+{
+	r += PI / 180 * radius;
+}
+
+// 发射子弹
+void Tank::shoot()
+{
+	double x = this->x, y = this->y, r = this->r, speed = 5;
+	Bullet* tem_Bullet=new Bullet(x, y, speed, r);
+
+	render_list.push_back(tem_Bullet);
+}
+
+// 处理按键信息
+int Tank::update()
+{
+	//cout <<"Tank has been updated successfully !!!";
+	if (GetAsyncKeyState('A') & 0x8000)
+	{
+		this->turn(2);
+	}
+	if (GetAsyncKeyState('D') & 0x8000)
+	{
+		this->turn(-2);
+	}
+	if (GetAsyncKeyState('W') & 0x8000)
+	{
+		this->move(3);
+	}
+	if (GetAsyncKeyState('S') & 0x8000)
+	{
+		this->move(-3);
+	}
+	if (GetAsyncKeyState('R') & 0x8000)
+	{
+		if (this->cd_shoot == 0)
 		{
-			Sleep(perms- duringtime);
+			this->cd_shoot = 40;
+			this->shoot();
 		}
 	}
-	EndBatchDraw();
-	return 0;
+	if (this->cd_shoot) --this->cd_shoot;
+	//玩家不出界，不删除，返回1
+	return 1;
 }

@@ -1,10 +1,20 @@
 #pragma once
-
 #include <graphics.h>
+//pair头文件
+#include <utility>
 #include <cmath>
 
 #define PI 3.14159265358979323846
+using namespace std;
 
+inline pair<int, int> calcMovePosition(double x,double y,double r,double dis)
+{
+    double dy = dis * cos(r);
+    double dx = dis * sin(r);
+    x -= dx;
+    y -= dy;
+    return { x,y };
+}
 inline double calcAngle(int x0, int y0,int tx,int ty)
 {
 	//细节颠倒，因为计算的是和y轴夹角
