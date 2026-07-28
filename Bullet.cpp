@@ -17,7 +17,7 @@ int Bullet::update()
 	pair<double, double> new_xy = calcMovePosition(this->x, this->y, this->r, speed);
 	this->x = new_xy.first;
 	this->y = new_xy.second;
-	if (x < 0 - d || y < 0 - d || x>800 + d || y>600 + d)
+	if (x < 0 - d || y < 0 - d || x>1400 + d || y>800 + d)
 	{
 		// 出界返回0
 		return 0;
@@ -28,7 +28,7 @@ int Bullet::update()
 
 void Bullet::render()
 {
-	setlinecolor(0x000084);
+	setlinecolor(0xFFFFFF);
 	solidcircle(x, y, siz);
 }
 

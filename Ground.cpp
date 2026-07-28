@@ -5,12 +5,12 @@ using namespace std;
 Ground::Ground(double x, double y,int siz)
 {
 	this->siz = siz;
-	this->color = RGB(getRandomInt(0, 170), getRandomInt(0, 170), getRandomInt(0, 170));
-	//if (getJudgement(25))
-	//{
-	//	this->color = RGB(172, 172, 172);
-	//}
-	//else this->color = 0xFFFFFF;
+	//this->color = RGB(getRandomInt(0, 170), getRandomInt(0, 170), getRandomInt(0, 170));
+	if (getJudgement(25))
+	{
+		this->color = RGB(172, 172, 172);
+	}
+	else this->color = RGB(182, 182, 182);
 	this->x = x;
 	this->y = y;
 }

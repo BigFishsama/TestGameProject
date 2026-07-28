@@ -6,6 +6,7 @@
 #include <random>
 
 #define PI 3.14159265358979323846
+#define debug(x) cout<<#x<<":"<<x<<'\n';
 using namespace std;
 
 //所有的方法都要内联，防止重复定义

@@ -4,7 +4,7 @@
 #include "fishsouptools.h"
 #include "Tank.h"
 
-class Bullet:public FishSoup_Obeject {
+class Bullet:public FishSoup_Object {
 public:
 	double speed;
 	// 出界修正值

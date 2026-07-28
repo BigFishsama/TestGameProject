@@ -2,7 +2,7 @@
 
 #include <graphics.h>
 #include "fishsouptools.h"
-class FishSoup_Obeject
+class FishSoup_Object
 {
 public:
 	double x,y,r;

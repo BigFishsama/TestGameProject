@@ -6,8 +6,9 @@
 #include "Bullet.h"
 using namespace std;
 
-//声明实体渲染列表
-extern list<FishSoup_Obeject*> render_list;
+//声明实体渲染列表与背景渲染列表
+extern list<FishSoup_Object*> render_list;
+extern list<FishSoup_Object*> background_object;
 
 //声明玩家1
 extern Tank player;
@@ -15,6 +16,9 @@ extern Bullet player_Bullet;
 
 //地图信息
 extern int map_weight, map_height,ground_length;
+extern bool map[1400][800];
+extern int map_ground[50][50];
+extern bool map_wall[50][50][4];
 
 //全局缩放等级
 extern double scalelevel;
@@ -25,6 +29,7 @@ class Manager
 public:
 	// 初始化游戏信息
 	void init();
+	void initbackground();
 
 	// 处理信息，更新游戏
 	void update();

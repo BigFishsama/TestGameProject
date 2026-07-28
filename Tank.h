@@ -5,7 +5,7 @@
 #include "fishsouptools.h"
 #include <iostream>
 using namespace std;
-class Tank:public FishSoup_Obeject {
+class Tank:public FishSoup_Object {
 public:
 	int cd_shoot = 100;
 
@@ -13,6 +13,8 @@ public:
 	int default_height=30, default_weight=40;
 	double height, weight;
 	double tem_length;
+	double default_movespeed=3, default_turnspeed=2;
+	double movespeed, turnspeed;
 
 	//底座四个点从左上角顺时针到左下角
 	double r1,r2,r3,r4;

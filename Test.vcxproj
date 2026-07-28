@@ -147,6 +147,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Test.cpp" />
+    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
@@ -154,6 +155,8 @@
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Tank.h" />
+    <ClInclude Include="Wall.h" />
+    <ClInclude Include="Worldgen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,7 +2,7 @@
 #include "Object.h"
 #include <graphics.h>
 
-class Ground :public FishSoup_Obeject
+class Ground :public FishSoup_Object
 {
 public:
 	COLORREF color;

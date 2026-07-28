@@ -23,10 +23,14 @@ Tank::Tank(double x, double y, double r, char key_up, char key_down, char key_le
 }
 void Tank::update_model()
 {
+	//日志
 	cout << "model has been updated successfully!\n";
 	cout << "The scalelevel is " << scalelevel<<'\n';
+
 	this->height = default_height / scalelevel;
 	this->weight = default_weight / scalelevel;
+	this->movespeed = default_movespeed / scalelevel;
+	this->turnspeed = default_turnspeed;
 	tem_length = (double)sqrt((height / 2.0) * (height / 2.0) + (weight / 2.0) * (weight / 2.0));
 	//底座四个点从左上角顺时针到左下角
 	r1 = atan2(-height, -weight);
@@ -65,19 +69,19 @@ int Tank::update()
 	//cout <<"Tank has been updated successfully !!!";
 	if (GetAsyncKeyState('A') & 0x8000)
 	{
-		this->turn(-2);
+		this->turn(-turnspeed);
 	}
 	if (GetAsyncKeyState('D') & 0x8000)
 	{
-		this->turn(2);
+		this->turn(turnspeed);
 	}
 	if (GetAsyncKeyState('W') & 0x8000)
 	{
-		this->move(3);
+		this->move(movespeed);
 	}
 	if (GetAsyncKeyState('S') & 0x8000)
 	{
-		this->move(-3);
+		this->move(-movespeed);
 	}
 	if (GetAsyncKeyState('R') & 0x8000)
 	{
@@ -94,15 +98,20 @@ int Tank::update()
 
 void Tank::render()
 {
-	setlinecolor(0xFFFFFF);
+	setfillcolor(RGB(150, 70, 60));
+	
+	
+
 	//绘制底座
 	pair<double, double> tem_point1, tem_point2, tem_point3, tem_point4;
 	tem_point1 = calcMovePosition(x, y, r1 + r, tem_length);
 	tem_point2 = calcMovePosition(x, y, r2 + r, tem_length);
 	tem_point3 = calcMovePosition(x, y, r3 + r, tem_length);
 	tem_point4 = calcMovePosition(x, y, r4 + r, tem_length);
-	line(tem_point1.first, tem_point1.second, tem_point2.first, tem_point2.second);
-	line(tem_point2.first, tem_point2.second, tem_point3.first, tem_point3.second);
-	line(tem_point3.first, tem_point3.second, tem_point4.first, tem_point4.second);
-	line(tem_point4.first, tem_point4.second, tem_point1.first, tem_point1.second);
+	POINT tem_points[] = { {tem_point1.first,tem_point1.second},{tem_point2.first,tem_point2.second} ,{tem_point3.first,tem_point3.second},{tem_point4.first,tem_point4.second} };
+	solidpolygon(tem_points, 4);
+	//line(tem_point1.first, tem_point1.second, tem_point2.first, tem_point2.second);
+	//line(tem_point2.first, tem_point2.second, tem_point3.first, tem_point3.second);
+	//line(tem_point3.first, tem_point3.second, tem_point4.first, tem_point4.second);
+	//line(tem_point4.first, tem_point4.second, tem_point1.first, tem_point1.second);
 }
