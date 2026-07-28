@@ -18,8 +18,10 @@ list<FishSoup_Object*> render_list;
 list<FishSoup_Object*> background_object;
 IMAGE background_img;
 
-Tank player(400, 300, 0, 'W', 'S', 'A', 'D', 'R');
-Bullet player_Bullet(0, 0, 0, 0);
+Tank player1(400, 300, 0, 1);
+Bullet player1_Bullet(0, 0, 0, 0);
+Tank player2(400, 300, 0, 2);
+Bullet player2_Bullet(0, 0, 0, 0);
 Manager manager;
 
 int map_height, map_weight;
@@ -38,8 +40,10 @@ void Manager::init()
 	
 	initWorld();
 	initbackground();
-	player.update_model();
-	render_list.push_back(&player);
+	player1.update_model();
+	player2.update_model();
+	render_list.push_back(&player1);
+	render_list.push_back(&player2);
 }
 
 //绘制并保存背景

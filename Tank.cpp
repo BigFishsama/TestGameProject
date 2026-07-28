@@ -12,13 +12,17 @@ Tank::Tank(double x,double y,double r)
 	this->r = r;
 	update_model();
 }
-Tank::Tank(double x, double y, double r, char key_up, char key_down, char key_left, char key_right, char key_shoot)
+Tank::Tank(double x, double y, double r,int controlmode)
 {
-	this->key_up = key_up;
-	this->key_down = key_down;
-	this->key_left = key_left;
-	this->key_right = key_right;
-	this->key_shoot = key_shoot;
+	this->controlmode = controlmode;
+	if (controlmode == 1)
+	{
+		this->color = RGB(150, 70, 60);
+	}
+	else
+	{
+		this->color = RGB(60, 75, 45);
+	}
 	Tank(x, y, r);
 }
 void Tank::update_model()
@@ -67,40 +71,57 @@ void Tank::shoot()
 int Tank::update()
 {
 	//cout <<"Tank has been updated successfully !!!";
-	if (GetAsyncKeyState('A') & 0x8000)
+	int input_move=0, input_turn = 0;
+	bool input_shoot = false;
+	if (controlmode == 1)
 	{
-		this->turn(-turnspeed);
-	}
-	if (GetAsyncKeyState('D') & 0x8000)
-	{
-		this->turn(turnspeed);
-	}
-	if (GetAsyncKeyState('W') & 0x8000)
-	{
-		this->move(movespeed);
-	}
-	if (GetAsyncKeyState('S') & 0x8000)
-	{
-		this->move(-movespeed);
-	}
-	if (GetAsyncKeyState('R') & 0x8000)
-	{
-		if (this->cd_shoot == 0)
+		if (GetAsyncKeyState('A') & 0x8000) input_turn -= 1;
+		if (GetAsyncKeyState('D') & 0x8000) input_turn += 1;
+		if (GetAsyncKeyState('W') & 0x8000) input_move += 1;
+		if (GetAsyncKeyState('S') & 0x8000) input_move -= 1;
+		if (GetAsyncKeyState('R') & 0x8000)
 		{
-			this->cd_shoot = 40;
-			this->shoot();
+			if (this->cd_shoot == 0)
+			{
+				input_shoot = 1;
+			}
 		}
 	}
+	else
+	{
+		if (GetAsyncKeyState(VK_LEFT) & 0x8000) input_turn -= 1;
+		if (GetAsyncKeyState(VK_RIGHT) & 0x8000) input_turn += 1;
+		if (GetAsyncKeyState(VK_UP) & 0x8000) input_move += 1;
+		if (GetAsyncKeyState(VK_DOWN) & 0x8000) input_move -= 1;
+		if (GetAsyncKeyState('R') & 0x8000)
+		{
+			if (this->cd_shoot == 0)
+			{
+				input_shoot = 1;
+			}
+		}
+	}
+	if (input_move!=0)
+	{
+		this->move(movespeed * input_move);
+	}
+	if (input_turn != 0)
+	{
+		this->turn(turnspeed * input_turn);
+	}
+	if (input_shoot)
+	{
+		this->cd_shoot = 41;
+		this->shoot();
+	}
 	if (this->cd_shoot) --this->cd_shoot;
-	//玩家不出界，不删除，返回1
+	//玩家永远不出界，不删除，返回1
 	return 1;
 }
 
 void Tank::render()
 {
-	setfillcolor(RGB(150, 70, 60));
-	
-	
+	setfillcolor(color);
 
 	//绘制底座
 	pair<double, double> tem_point1, tem_point2, tem_point3, tem_point4;

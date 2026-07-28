@@ -10,9 +10,11 @@ using namespace std;
 extern list<FishSoup_Object*> render_list;
 extern list<FishSoup_Object*> background_object;
 
-//声明玩家1
-extern Tank player;
-extern Bullet player_Bullet;
+//声明玩家
+extern Tank player1;
+extern Bullet player1_Bullet;
+extern Tank player2;
+extern Bullet player2_Bullet;
 
 //地图信息
 extern int map_weight, map_height,ground_length;

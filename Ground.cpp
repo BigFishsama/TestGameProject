@@ -8,7 +8,7 @@ Ground::Ground(double x, double y,int siz)
 	//this->color = RGB(getRandomInt(0, 170), getRandomInt(0, 170), getRandomInt(0, 170));
 	if (getJudgement(25))
 	{
-		this->color = RGB(172, 172, 172);
+		this->color = RGB(174, 174, 174);
 	}
 	else this->color = RGB(182, 182, 182);
 	this->x = x;

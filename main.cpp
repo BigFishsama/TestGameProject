@@ -4,7 +4,7 @@
 #include "Manager.h"
 
 using namespace std;
-const int FPS = 120;
+const int FPS = 100;
 const int perms = 1000 / FPS;
 
 signed main()
