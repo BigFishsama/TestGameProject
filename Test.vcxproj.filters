@@ -36,6 +36,9 @@
     <ClCompile Include="Manager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tank.h">
@@ -48,6 +51,9 @@
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>

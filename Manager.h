@@ -13,6 +13,12 @@ extern list<FishSoup_Obeject*> render_list;
 extern Tank player;
 extern Bullet player_Bullet;
 
+//地图信息
+extern int map_weight, map_height,ground_length;
+
+//全局缩放等级
+extern double scalelevel;
+
 
 class Manager
 {

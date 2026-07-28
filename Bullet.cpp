@@ -2,30 +2,21 @@
 #include "fishsouptools.h"
 #include "Bullet.h"
 
-
-void Bullet::initrender()
-{
-	loadimage(&(this->Texture), L"image/Bullets/bullet.png", 20, 34, true);
-	loadimage(&(this->printed_Texture), L"image/Bullets/bullet.png", 20, 34, true);
-}
-
 Bullet::Bullet(double x, double y, double speed, double r)
 {
-	//初始化贴图
-	this->initrender();
-
-	this->x = x - speed * 10 * sin(r);
-	this->y = y - speed * 10 * cos(r);
 	this->speed = speed;
 	this->r = r;
+	pair<double, double> new_xy = calcMovePosition(x, y, r, speed*5);
+	this->x = new_xy.first;
+	this->y = new_xy.second;
 }
 
 int Bullet::update()
 {
-	double dx = speed * sin(r);
-	double dy = speed * cos(r);
-	x -= dx;
-	y -= dy;
+	//调用工具函数，返回新位置
+	pair<double, double> new_xy = calcMovePosition(this->x, this->y, this->r, speed);
+	this->x = new_xy.first;
+	this->y = new_xy.second;
 	if (x < 0 - d || y < 0 - d || x>800 + d || y>600 + d)
 	{
 		// 出界返回0
@@ -33,5 +24,11 @@ int Bullet::update()
 	}
 	// 不出界返回1
 	return 1;
+}
+
+void Bullet::render()
+{
+	setlinecolor(0x000084);
+	solidcircle(x, y, siz);
 }
 

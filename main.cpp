@@ -6,7 +6,6 @@
 using namespace std;
 const int FPS = 120;
 const int perms = 1000 / FPS;
-//int mx, my;
 
 signed main()
 {

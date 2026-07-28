@@ -1,9 +1,7 @@
 ﻿  正在扫描源以查找模块依赖项...
   Manager.cpp
+D:\C++pro\Test\Test\Manager.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\C++pro\Test\Test\Manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“Manager.cpp”)
-  
-D:\C++pro\Test\Test\Object.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Manager.cpp”)
   
 D:\C++pro\Test\Test\fishsouptools.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -12,104 +10,4 @@ D:\C++pro\Test\Test\fishsouptools.h(1,1): warning C4819: 该文件包含不能�
 D:\C++pro\Test\Test\Bullet.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Manager.cpp”)
   
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244: “初始化”: 从“double”转换到“_Ty1”，可能丢失数据
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:         with
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:         [
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:             _Ty1=int
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:         ]
-  (编译源文件“Manager.cpp”)
-      C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\C++pro\Test\Test\fishsouptools.h(16,5):
-          查看对正在编译的函数 模板 实例化“std::pair<int,int>::pair<double&,double&,0>(_Other1,_Other2) noexcept”的引用
-          with
-          [
-              _Other1=double &,
-              _Other2=double &
-          ]
-              D:\C++pro\Test\Test\fishsouptools.h(16,5):
-              请参阅 "calcMovePosition" 中对 "std::pair<int,int>::pair" 的第一个引用
-  
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244: “初始化”: 从“double”转换到“_Ty2”，可能丢失数据
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:         with
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:         [
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:             _Ty2=int
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:         ]
-  (编译源文件“Manager.cpp”)
-  
-  Object.cpp
-D:\C++pro\Test\Test\Object.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\C++pro\Test\Test\fishsouptools.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“Object.cpp”)
-  
-D:\C++pro\Test\Test\Object.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“Object.cpp”)
-  
-D:\C++pro\Test\Test\Object.cpp(8,52): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\C++pro\Test\Test\Object.cpp(8,16): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244: “初始化”: 从“double”转换到“_Ty1”，可能丢失数据
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:         with
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:         [
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:             _Ty1=int
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:         ]
-  (编译源文件“Object.cpp”)
-      C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\C++pro\Test\Test\fishsouptools.h(16,5):
-          查看对正在编译的函数 模板 实例化“std::pair<int,int>::pair<double&,double&,0>(_Other1,_Other2) noexcept”的引用
-          with
-          [
-              _Other1=double &,
-              _Other2=double &
-          ]
-              D:\C++pro\Test\Test\fishsouptools.h(16,5):
-              请参阅 "calcMovePosition" 中对 "std::pair<int,int>::pair" 的第一个引用
-  
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244: “初始化”: 从“double”转换到“_Ty2”，可能丢失数据
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:         with
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:         [
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:             _Ty2=int
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:         ]
-  (编译源文件“Object.cpp”)
-  
-  Tank.cpp
-D:\C++pro\Test\Test\Tank.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\C++pro\Test\Test\Object.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“Tank.cpp”)
-  
-D:\C++pro\Test\Test\fishsouptools.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“Tank.cpp”)
-  
-D:\C++pro\Test\Test\Bullet.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“Tank.cpp”)
-  
-D:\C++pro\Test\Test\Manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“Tank.cpp”)
-  
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244: “初始化”: 从“double”转换到“_Ty1”，可能丢失数据
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:         with
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:         [
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:             _Ty1=int
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16): warning C4244:         ]
-  (编译源文件“Tank.cpp”)
-      C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,16):
-      模板实例化上下文(最早的实例化上下文)为
-          D:\C++pro\Test\Test\fishsouptools.h(16,5):
-          查看对正在编译的函数 模板 实例化“std::pair<int,int>::pair<double&,double&,0>(_Other1,_Other2) noexcept”的引用
-          with
-          [
-              _Other1=double &,
-              _Other2=double &
-          ]
-              D:\C++pro\Test\Test\fishsouptools.h(16,5):
-              请参阅 "calcMovePosition" 中对 "std::pair<int,int>::pair" 的第一个引用
-  
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244: “初始化”: 从“double”转换到“_Ty2”，可能丢失数据
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:         with
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:         [
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:             _Ty2=int
-C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(277,54): warning C4244:         ]
-  (编译源文件“Tank.cpp”)
-  
-  正在生成代码...
   Test.vcxproj -> D:\C++pro\Test\x64\Debug\Test.exe
