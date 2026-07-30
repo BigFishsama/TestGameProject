@@ -39,6 +39,20 @@ inline void bombground(int x, int t, vector<tuple<int, int, int>>& tem_edge)
 	}
 }
 
+//暴力填充像素地图
+inline void putPixel(int tem_x1, int tem_y1, int tem_x2, int tem_y2)
+{
+	cout << "From: " << tem_x1 << ' ' << tem_y1 << " To:" << tem_x2 << ' ' << tem_y2 << "\n";
+	for (int t = tem_y1;t <= tem_y2;++t)
+	{
+		for (int i = tem_x1;i <= tem_x2;++i)
+		{
+			map[i][t] = 1;
+			//cout << i << ' ' << t << '\n';
+		}
+	}
+}
+
 //生成墙壁算法
 //核心思路，将若干个点插入队列作为备选点和备选边，之后每次从其中删除，这样子生成的图会使得中心扩散（因为初始点的关联边被删可能性更大）
 //特点：①地图生成质量表现不稳定，②图很难完全联通，③可能出现大片留白
@@ -139,7 +153,7 @@ void genWalls()
 	}
 
 	//渲染墙壁
-	int tem_wallx, tem_wally;
+	double tem_wallx, tem_wally;
 	for (int t = 1;t <= map_height;++t)
 	{
 		for (int i = 1;i <= map_weight;++i)
@@ -151,8 +165,10 @@ void genWalls()
 			{
 				tem_wallx = (1400 - map_weight * ground_length) / 2 + (i - 1) * ground_length;
 				tem_wally = 100 + (t - 1) * ground_length;
-
 				Wall* tem_wall = new Wall(tem_wallx, tem_wally, 0, ground_length);
+
+				putPixel(tem_wallx - tem_wall->d, tem_wally - tem_wall->d
+					, tem_wallx + ground_length + 2 * tem_wall->d, tem_wally + 2 * tem_wall->d);
 				background_object.push_back(tem_wall);
 			}
 			if(map_wall[i][t][1])
@@ -160,6 +176,9 @@ void genWalls()
 				tem_wallx = (1400 - map_weight * ground_length) / 2 + (i - 1) * ground_length;
 				tem_wally = 100 + (t - 1) * ground_length+ground_length;
 				Wall* tem_wall = new Wall(tem_wallx, tem_wally, 1, ground_length);
+
+				putPixel(tem_wallx - tem_wall->d, tem_wally - tem_wall->d
+					, tem_wallx + ground_length + 2 * tem_wall->d, tem_wally  + 2 * tem_wall->d);
 				background_object.push_back(tem_wall);
 			}
 			if (map_wall[i][t][2])
@@ -167,6 +186,9 @@ void genWalls()
 				tem_wallx = (1400 - map_weight * ground_length) / 2 + (i - 1) * ground_length;
 				tem_wally = 100 + (t - 1) * ground_length;
 				Wall* tem_wall = new Wall(tem_wallx, tem_wally, 2, ground_length);
+
+				putPixel(tem_wallx - tem_wall->d, tem_wally - tem_wall->d
+					, tem_wallx + 2 * tem_wall->d, tem_wally + ground_length + 2 * tem_wall->d);
 				background_object.push_back(tem_wall);
 			}
 			if(map_wall[i][t][3])
@@ -174,12 +196,16 @@ void genWalls()
 				tem_wallx = (1400 - map_weight * ground_length) / 2 + (i - 1) * ground_length + ground_length;
 				tem_wally = 100 + (t - 1) * ground_length ;
 				Wall* tem_wall = new Wall(tem_wallx, tem_wally, 3, ground_length);
+
+				putPixel(tem_wallx - tem_wall->d, tem_wally - tem_wall->d
+					, tem_wallx + 2*tem_wall->d,tem_wally + ground_length + 2*tem_wall->d);
 				background_object.push_back(tem_wall);
 			}
 		}
 	}
 }
 
+//随机出生位置，保证双方在一个连通块内
 static vector<pair<int,int>> tem_point;
 static bool tem_valid[50][50];
 void dfsDying(int x, int y)
@@ -271,6 +297,14 @@ int initWorld()
 	int tem_ceil = 1300 / ground_length;
 	map_weight = getRandomInt(min(tem_ceil, 5), tem_ceil);
 	
+	//初始化地图
+	for (int t = 1;t <= 800;++t)
+	{
+		for (int i = 1;i <= 1400;++i)
+		{
+			map[i][t] = 0;
+		}
+	}
 	for (int t = 1;t <= map_height;++t)
 	{
 		for (int i = 1;i <= map_weight;++i)
@@ -284,6 +318,7 @@ int initWorld()
 	}
 	genWalls();
 	bool tem_result = genSpawn();
+	
 
 	//日志
 	if (!tem_result)
@@ -291,10 +326,11 @@ int initWorld()
 		cout << "CRASH#1: THE WORLDGEN PROCESS HAPPENED A RARE EVENT!";
 		return 0;
 	}
+
 	cout << "Worldgen completed!\n";
 	cout << "The details listed below:\n";
 	cout << " map_height: " << map_height << '\n';
 	cout << "map_weight: " << map_weight << '\n';
-
+	cout << "--------------------------------------------------------" << '\n';
 	return 1;
 }

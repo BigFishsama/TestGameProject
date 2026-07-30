@@ -2,7 +2,7 @@
 #include "Manager.h"
 using namespace std;
 
-Wall::Wall(double x, double y, int style,double weight)
+Wall::Wall(double x, double y, int style,int weight)
 {
 	this->x = x;
 	this->y = y;

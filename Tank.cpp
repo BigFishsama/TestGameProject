@@ -48,14 +48,28 @@ void Tank::move(double dis)
 {
 	//调用工具函数，返回新位置
 	pair<double, double> new_xy = calcMovePosition(this->x, this->y, this->r, dis);
-	this->x = new_xy.first;
-	this->y = new_xy.second;
+	if (checkHitbox(new_xy.first, y, this->r))
+	{
+		this->x = new_xy.first;
+	}
+	if (checkHitbox(x,new_xy.second, this->r))
+	{
+		this->y = new_xy.second;
+	}
+	//else cout << "DEBUG#1: Fail to MOVE due to Hitbox\n";
 }
 
-// 旋转radius度，顺时针方向为正，0度是x轴向右
+
+// 旋转radius弧度，顺时针方向为正，0度是x轴向右
+//1°约为0.01745
 void Tank::turn(double radius)
 {
-	r += PI / 180 * radius;
+	double tem_r = this->r + radius * 0.01745;
+	if (checkHitbox(this->x, this->y, tem_r))
+	{
+		this->r = tem_r;
+	}
+	//else cout << "DEBUG#2: Fail to TURN due to Hitbox\n";
 }
 
 // 发射子弹
@@ -101,13 +115,21 @@ int Tank::update()
 			}
 		}
 	}
-	if (input_move!=0)
+	if (input_move != 0)
 	{
 		this->move(movespeed * input_move);
+		//if (!checkHitbox(x, y, r))
+		//{
+		//	cout << "CRASH#3 HitBox Error.Moving!\n";
+		//}
 	}
 	if (input_turn != 0)
 	{
 		this->turn(turnspeed * input_turn);
+		//if (!checkHitbox(x, y, r))
+		//{
+		//	cout << "CRASH#4 HitBox Error.Turing!\n";
+		//}
 	}
 	if (input_shoot)
 	{
@@ -119,20 +141,61 @@ int Tank::update()
 	return 1;
 }
 
+void Tank::getHitbox(double tem_x, double tem_y, double tem_r, vector<pair<int, int>>& tem_pixels)
+{
+	tem_point1 = calcMovePosition(tem_x, tem_y, r1 + tem_r, tem_length);
+	tem_point2 = calcMovePosition(tem_x, tem_y, r2 + tem_r, tem_length);
+	tem_point3 = calcMovePosition(tem_x, tem_y, r3 + tem_r, tem_length);
+	tem_point4 = calcMovePosition(tem_x, tem_y, r4 + tem_r, tem_length);
+	getLinepixel(tem_point1.first, tem_point1.second, tem_point2.first, tem_point2.second,tem_pixels);
+	getLinepixel(tem_point2.first, tem_point2.second, tem_point3.first, tem_point3.second, tem_pixels);
+	getLinepixel(tem_point3.first, tem_point3.second, tem_point4.first, tem_point4.second, tem_pixels);
+	getLinepixel(tem_point4.first, tem_point4.second, tem_point1.first, tem_point1.second, tem_pixels);
+}
+bool Tank::checkHitbox(double tem_x, double tem_y, double tem_r)
+{
+	vector<pair<int, int>> tem_pixels = {};
+	getHitbox(tem_x, tem_y, tem_r, tem_pixels);
+
+	//DEBUG
+	//debug(tem_pixels.size())
+	for (auto i : tem_pixels)
+	{
+		//cout << i.first << ' ' << i.second << '\n';
+		if (map[(int)i.first][(int)i.second])
+		{
+			//cout << "Find!";
+			return false;
+		}
+	}
+	return true;
+}
+
 void Tank::render()
 {
 	setfillcolor(color);
 
 	//绘制底座
-	pair<double, double> tem_point1, tem_point2, tem_point3, tem_point4;
-	tem_point1 = calcMovePosition(x, y, r1 + r, tem_length);
-	tem_point2 = calcMovePosition(x, y, r2 + r, tem_length);
-	tem_point3 = calcMovePosition(x, y, r3 + r, tem_length);
-	tem_point4 = calcMovePosition(x, y, r4 + r, tem_length);
+	update_hitbox();
 	POINT tem_points[] = { {tem_point1.first,tem_point1.second},{tem_point2.first,tem_point2.second} ,{tem_point3.first,tem_point3.second},{tem_point4.first,tem_point4.second} };
+	
 	solidpolygon(tem_points, 4);
+
 	//line(tem_point1.first, tem_point1.second, tem_point2.first, tem_point2.second);
 	//line(tem_point2.first, tem_point2.second, tem_point3.first, tem_point3.second);
 	//line(tem_point3.first, tem_point3.second, tem_point4.first, tem_point4.second);
 	//line(tem_point4.first, tem_point4.second, tem_point1.first, tem_point1.second);
+}
+
+void Tank::update_hitbox()
+{
+	tem_point1 = calcMovePosition(x, y, r1 + r, tem_length);
+	tem_point2 = calcMovePosition(x, y, r2 + r, tem_length);
+	tem_point3 = calcMovePosition(x, y, r3 + r, tem_length);
+	tem_point4 = calcMovePosition(x, y, r4 + r, tem_length);
+	////清空之前碰撞箱信息
+	//for (auto i : hitbox)
+	//{
+
+	//}
 }

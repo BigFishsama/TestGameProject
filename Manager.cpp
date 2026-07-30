@@ -25,7 +25,7 @@ Bullet player2_Bullet(0, 0, 0, 0);
 Manager manager;
 
 int map_height, map_weight;
-bool map[1400][800];
+bool map[1405][805];
 int map_ground[50][50];
 bool map_wall[50][50][4];
 int ground_length;
@@ -54,6 +54,17 @@ void Manager::initbackground()
 	for(auto it=background_object.begin();it!=background_object.end();++it)
 	{
 		(*it)->render();
+	}
+	//DEBUG
+	for (int t = 1;t <= 800;++t)
+	{
+		for (int i = 1;i <= 1400;++i)
+		{
+			if (map[i][t])
+			{
+				putpixel(i, t, 0xFFFFFF);
+			}
+		}
 	}
 	SetWorkingImage();
 }

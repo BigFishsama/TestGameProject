@@ -12,7 +12,7 @@ public:
 
 	COLORREF color=RGB(128, 128, 128);
 
-	Wall(double x, double y, int style,double weight);
+	Wall(double x, double y, int style,int weight);
 	virtual void render() override;
 	virtual void update_model();
 };

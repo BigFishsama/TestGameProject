@@ -18,7 +18,7 @@ extern Bullet player2_Bullet;
 
 //地图信息
 extern int map_weight, map_height,ground_length;
-extern bool map[1400][800];
+extern bool map[1405][805];
 extern int map_ground[50][50];
 extern bool map_wall[50][50][4];
 

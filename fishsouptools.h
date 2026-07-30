@@ -2,6 +2,7 @@
 #include <graphics.h>
 //pair头文件
 #include <utility>
+#include <iostream>
 #include <cmath>
 #include <random>
 
@@ -39,6 +40,74 @@ inline int getRandomInt(int minn,int maxn)
 inline bool getJudgement(int pd)
 {
     return getRandomInt(0, 100) <= pd ? 1 : 0;
+}
+
+//获取偏水平直线像素点
+inline void getLineXpixel(int tem_x1, int tem_y1, int tem_x2, int tem_y2, vector<pair<int, int>>& tem_pixels)
+{
+    if (tem_x1 > tem_x2)
+    {
+        swap(tem_x1, tem_x2);
+        swap(tem_y1, tem_y2);
+    }
+    int dx = tem_x2 - tem_x1, dy = tem_y2 - tem_y1;
+    int dir = dy > 0 ? 1 : -1;
+    dy *= dir;
+    if (dx != 0)
+    {
+        int y = tem_y1;
+        int p = 2 * dy - dx;
+        for (int t = 0;t <= dx;++t)
+        {
+            tem_pixels.push_back({ tem_x1 + t,y });
+            if (p >= 0)
+            {
+                y += dir;
+                p -= 2 * dx;
+            }
+            p += 2 * dy;
+        }
+    }
+}
+//获取偏垂直直线像素点
+inline void getLineYpixel(int tem_x1, int tem_y1, int tem_x2, int tem_y2, vector<pair<int, int>>& tem_pixels)
+{
+    if (tem_y1 > tem_y2)
+    {
+        swap(tem_x1, tem_x2);
+        swap(tem_y1, tem_y2);
+    }
+    int dx = tem_x2 - tem_x1, dy = tem_y2 - tem_y1;
+    int dir = dx > 0 ? 1 : -1;
+    dx *= dir;
+    if (dy != 0)
+    {
+        int x = tem_x1;
+        int p = 2 * dx - dy;
+        for (int t = 0;t <= dy;++t)
+        {
+            tem_pixels.push_back({ x,tem_y1+t });
+            if (p >= 0)
+            {
+                x += dir;
+                p -= 2 * dy;
+            }
+            p += 2 * dx;
+        }
+    }
+}
+
+//获取一条粗度为1的线上的所有像素点位置
+inline void getLinepixel(int tem_x1, int tem_y1, int tem_x2, int tem_y2, vector<pair<int, int>>& tem_pixels)
+{
+    if (abs(tem_x2 - tem_x1) > abs(tem_y2 - tem_y1))
+    {
+        getLineXpixel(tem_x1, tem_y1, tem_x2, tem_y2, tem_pixels);
+    }
+    else
+    {
+        getLineYpixel(tem_x1, tem_y1, tem_x2, tem_y2, tem_pixels);
+    }
 }
 
 
