@@ -4,11 +4,63 @@ D:\C++pro\Test\Test\Bullet.cpp(1,1): warning C4819: 该文件包含不能在当�
 D:\C++pro\Test\Test\fishsouptools.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Bullet.cpp”)
   
-D:\C++pro\Test\Test\Bullet.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\C++pro\Test\Test\Manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Bullet.cpp”)
   
-D:\C++pro\Test\Test\Bullet.cpp(32,17): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\C++pro\Test\Test\Bullet.cpp(32,14): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\C++pro\Test\Test\Tank.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“Bullet.cpp”)
+  
+D:\C++pro\Test\Test\Bullet.cpp(115,20): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\C++pro\Test\Test\Bullet.cpp(115,17): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\C++pro\Test\Test\Bullet.cpp(115,14): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,16): warning C4244: “初始化”: 从“_Ty”转换到“_Ty1”，可能丢失数据
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,16): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,16): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,16): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,16): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,16): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,16): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,16): warning C4244:             _Ty1=int
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,16): warning C4244:         ]
+  (编译源文件“Bullet.cpp”)
+      C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,16):
+      模板实例化上下文(最早的实例化上下文)为
+          D:\C++pro\Test\Test\Bullet.cpp(33,14):
+          查看对正在编译的函数 模板 实例化“std::pair<int,int> &std::vector<std::pair<int,int>,std::allocator<std::pair<int,int>>>::emplace_back<std::pair<double,double>>(std::pair<double,double> &&)”的引用
+              D:\C++pro\Test\Test\Bullet.cpp(33,26):
+              请参阅 "Bullet::getHitbox" 中对 "std::vector<std::pair<int,int>,std::allocator<std::pair<int,int>>>::emplace_back" 的第一个引用
+          C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\vector(927,24):
+          查看对正在编译的函数 模板 实例化“_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_one_at_back<std::pair<double,double>>(std::pair<double,double> &&)”的引用
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\vector(847,20):
+          查看对正在编译的函数 模板 实例化“_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<std::pair<double,double>>(std::pair<double,double> &&)”的引用
+          with
+          [
+              _Ty=std::pair<int,int>
+          ]
+          C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\vector(862,18):
+          查看对正在编译的函数 模板 实例化“void std::_Construct_in_place<std::pair<int,int>,_Ty>(std::pair<int,int> &,_Ty &&) noexcept”的引用
+          with
+          [
+              _Ty=std::pair<double,double>
+          ]
+          C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\xutility(661,82):
+          查看对正在编译的函数 模板 实例化“std::pair<int,int>::pair<double,double,0>(std::pair<double,double> &&) noexcept”的引用
+  
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,61): warning C4244: “初始化”: 从“_Ty”转换到“_Ty2”，可能丢失数据
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,61): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,61): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,61): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,61): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,61): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,61): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,61): warning C4244:             _Ty2=int
+C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(335,61): warning C4244:         ]
+  (编译源文件“Bullet.cpp”)
+  
   Manager.cpp
 D:\C++pro\Test\Test\Manager.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\C++pro\Test\Test\Manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -17,7 +69,7 @@ D:\C++pro\Test\Test\Manager.h(1,1): warning C4819: 该文件包含不能在当�
 D:\C++pro\Test\Test\fishsouptools.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Manager.cpp”)
   
-D:\C++pro\Test\Test\Bullet.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\C++pro\Test\Test\Tank.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Manager.cpp”)
   
 D:\C++pro\Test\Test\Worldgen.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -85,10 +137,10 @@ D:\C++pro\Test\Test\Worldgen.h(264,55): warning C4267: “参数”: 从“size_
   
   Tank.cpp
 D:\C++pro\Test\Test\Tank.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\C++pro\Test\Test\fishsouptools.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\C++pro\Test\Test\Tank.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Tank.cpp”)
   
-D:\C++pro\Test\Test\Bullet.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\C++pro\Test\Test\fishsouptools.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Tank.cpp”)
   
 D:\C++pro\Test\Test\Manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -106,9 +158,9 @@ C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\
   (编译源文件“Tank.cpp”)
       C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(471,39):
       模板实例化上下文(最早的实例化上下文)为
-          D:\C++pro\Test\Test\Tank.cpp(146,13):
+          D:\C++pro\Test\Test\Tank.cpp(231,9):
           查看对正在编译的函数 模板 实例化“std::pair<int,int> &std::pair<int,int>::operator =<double,double,0>(std::pair<double,double> &&) noexcept”的引用
-              D:\C++pro\Test\Test\Tank.cpp(146,13):
+              D:\C++pro\Test\Test\Tank.cpp(231,9):
               请参阅 "Tank::getHitbox" 中对 "std::pair<int,int>::operator =" 的第一个引用
   
 C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\include\utility(472,39): warning C4244: “=”: 从“_Ty”转换到“_Ty2”，可能丢失数据
@@ -129,7 +181,7 @@ D:\C++pro\Test\Test\fishsouptools.h(1,1): warning C4819: 该文件包含不能�
 D:\C++pro\Test\Test\Manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Wall.cpp”)
   
-D:\C++pro\Test\Test\Bullet.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\C++pro\Test\Test\Tank.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“Wall.cpp”)
   
 D:\C++pro\Test\Test\Wall.cpp(23,44): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
@@ -147,7 +199,7 @@ D:\C++pro\Test\Test\fishsouptools.h(1,1): warning C4819: 该文件包含不能�
 D:\C++pro\Test\Test\Manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“main.cpp”)
   
-D:\C++pro\Test\Test\Bullet.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\C++pro\Test\Test\Tank.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   (编译源文件“main.cpp”)
   
   正在生成代码...

@@ -4,7 +4,7 @@
 #include "Manager.h"
 
 using namespace std;
-const int FPS = 100;
+const int FPS = 120;
 const int perms = 1000 / FPS;
 
 signed main()
@@ -13,6 +13,7 @@ signed main()
 	BeginBatchDraw();
 	while (1)
 	{
+		++time_tick;
 		DWORD starttime = GetTickCount();
 		//ExMessage mes;
 		//while (peekmessage(&mes))
@@ -30,6 +31,7 @@ signed main()
 		{
 			Sleep(perms- duringtime);
 		}
+		
 	}
 	EndBatchDraw();
 	return 0;

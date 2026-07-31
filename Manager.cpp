@@ -8,7 +8,10 @@
 using namespace std;
 
 //在单一文件中定义全局数据
-// 
+
+//全局游戏时间戳，用于优化性能
+int time_tick = 1;
+
 //此处重大BUG!!!!!
 //原定义list<FishSoup_Obeject> render_list;
 //会丢失子类信息，发生对象切片，需要改为存储地址
@@ -19,13 +22,13 @@ list<FishSoup_Object*> background_object;
 IMAGE background_img;
 
 Tank player1(400, 300, 0, 1);
-Bullet player1_Bullet(0, 0, 0, 0);
 Tank player2(400, 300, 0, 2);
-Bullet player2_Bullet(0, 0, 0, 0);
 Manager manager;
 
 int map_height, map_weight;
-bool map[1405][805];
+int map_corner1_x, map_corner1_y;
+int map_corner2_x, map_corner2_y;
+int map[1405][805];
 int map_ground[50][50];
 bool map_wall[50][50][4];
 int ground_length;
@@ -56,16 +59,16 @@ void Manager::initbackground()
 		(*it)->render();
 	}
 	//DEBUG
-	for (int t = 1;t <= 800;++t)
-	{
-		for (int i = 1;i <= 1400;++i)
-		{
-			if (map[i][t])
-			{
-				putpixel(i, t, 0xFFFFFF);
-			}
-		}
-	}
+	//for (int t = 1;t <= 800;++t)
+	//{
+	//	for (int i = 1;i <= 1400;++i)
+	//	{
+	//		if (map[i][t])
+	//		{
+	//			putpixel(i, t, 0xFFFFFF);
+	//		}
+	//	}
+	//}
 	SetWorkingImage();
 }
 
@@ -92,4 +95,8 @@ void Manager::renderAllObeject()
 	{
 		(*it)->render();
 	}
+	//for (auto it = render_list.rbegin();it != render_list.rend();--it)
+	//{
+	//	(*it)->render();
+	//}
 }

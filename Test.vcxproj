@@ -146,7 +146,6 @@
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Tank.cpp" />
-    <ClCompile Include="Test.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>

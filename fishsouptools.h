@@ -42,6 +42,19 @@ inline bool getJudgement(int pd)
     return getRandomInt(0, 100) <= pd ? 1 : 0;
 }
 
+//画有边框矩形
+inline void drawrectangle(POINT* tem_points,COLORREF outline_color,COLORREF fill_color)
+{
+    setfillcolor(fill_color);
+    solidpolygon(tem_points, 4);
+
+    setlinecolor(outline_color);
+    line(tem_points[0].x, tem_points[0].y, tem_points[1].x, tem_points[1].y);
+    line(tem_points[1].x, tem_points[1].y, tem_points[2].x, tem_points[2].y);
+    line(tem_points[2].x, tem_points[2].y, tem_points[3].x, tem_points[3].y);
+    line(tem_points[3].x, tem_points[3].y, tem_points[0].x, tem_points[0].y);
+}
+
 //获取偏水平直线像素点
 inline void getLineXpixel(int tem_x1, int tem_y1, int tem_x2, int tem_y2, vector<pair<int, int>>& tem_pixels)
 {
@@ -59,7 +72,7 @@ inline void getLineXpixel(int tem_x1, int tem_y1, int tem_x2, int tem_y2, vector
         int p = 2 * dy - dx;
         for (int t = 0;t <= dx;++t)
         {
-            tem_pixels.push_back({ tem_x1 + t,y });
+            tem_pixels.emplace_back(tem_x1 + t,y);
             if (p >= 0)
             {
                 y += dir;
@@ -86,7 +99,7 @@ inline void getLineYpixel(int tem_x1, int tem_y1, int tem_x2, int tem_y2, vector
         int p = 2 * dx - dy;
         for (int t = 0;t <= dy;++t)
         {
-            tem_pixels.push_back({ x,tem_y1+t });
+            tem_pixels.emplace_back(x,tem_y1+t);
             if (p >= 0)
             {
                 x += dir;

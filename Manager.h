@@ -6,19 +6,22 @@
 #include "Bullet.h"
 using namespace std;
 
+//全局游戏时刻
+extern int time_tick;
+
 //声明实体渲染列表与背景渲染列表
 extern list<FishSoup_Object*> render_list;
 extern list<FishSoup_Object*> background_object;
 
 //声明玩家
 extern Tank player1;
-extern Bullet player1_Bullet;
 extern Tank player2;
-extern Bullet player2_Bullet;
 
 //地图信息
 extern int map_weight, map_height,ground_length;
-extern bool map[1405][805];
+extern int map_corner1_x, map_corner1_y;
+extern int map_corner2_x, map_corner2_y;
+extern int map[1405][805];
 extern int map_ground[50][50];
 extern bool map_wall[50][50][4];
 

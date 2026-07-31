@@ -284,9 +284,10 @@ bool genSpawn()
 int initWorld()
 {
 	//纵轴可选的方块个数
-	int tem_ground_length[7] = { 2,3,5,6,8,10,12 };
-	map_height = tem_ground_length[getRandomInt(0, 6)];
-
+	//int tem_ground_length[7] = { 2,3,5,6,8,10,12 };
+	//map_height = tem_ground_length[getRandomInt(0, 6)];
+	int tem_ground_length[3] = { 2,3,5};
+	map_height = tem_ground_length[getRandomInt(0, 2)];
 	//得到单个地板的边长
 	ground_length = 600 / map_height;
 
@@ -298,6 +299,11 @@ int initWorld()
 	map_weight = getRandomInt(min(tem_ceil, 5), tem_ceil);
 	
 	//初始化地图
+	map_corner1_x = (1400 - map_weight * ground_length) / 2;
+	map_corner1_y = 100;
+	map_corner2_x = (1400 - map_weight * ground_length) / 2+map_weight* ground_length;
+	map_corner2_y = 100 + map_height * ground_length;
+
 	for (int t = 1;t <= 800;++t)
 	{
 		for (int i = 1;i <= 1400;++i)
